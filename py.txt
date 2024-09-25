@@ -1,0 +1,150 @@
+print("Bem vindo!!")
+
+while True:
+    print("Selecione a opção abaixo:")
+    print("[C] Cliente")
+    print("[F] Funcionário")
+
+    op = input("Digite aqui: ")
+
+    if op == "C" or op == "c":
+        print("Bem vindo, cliente!")
+        break
+
+    elif op == "F" or op == "f":
+        print("Bem vindo, funcionário!")
+
+        Sabonete_Francis_90g = 4.70
+        Shampoo_Tresemme_400ml = 18.00
+        Condicionador_Tresemme_400ml = 23.00
+        steak = 0.75
+        nuggets_Frango_congelado_1_5kg = 20.00
+        Picanha_1kg = 58.99
+        Cocacola_2l = 8.89
+        Budweiser_330ml = 4.00
+
+        produtos_alimentos = [
+            {"nome": "Steak", "preco": steak},
+            {"nome": "Nuggets Frango Congelado 1.5kg", "preco": nuggets_Frango_congelado_1_5kg},
+            {"nome": "Picanha 1kg", "preco": Picanha_1kg},
+            {"nome": "Coca-cola 2l", "preco": Cocacola_2l},
+            {"nome": "Budweiser 330ml", "preco": Budweiser_330ml}
+        ]
+
+        produtos_higiene = [
+            {"nome": "Sabonete Francis 90g", "preco": Sabonete_Francis_90g},
+            {"nome": "Shampoo Tresemme 400ml", "preco": Shampoo_Tresemme_400ml},
+            {"nome": "Condicionador Tresemme 400ml", "preco": Condicionador_Tresemme_400ml}
+        ]
+
+        matricula = ""
+        nome = ""
+        data_nascimento = ""
+        cpf = ""
+
+
+        while True:
+            print("[1] Entrar")
+            print("[2] Fazer cadastro")
+
+            op_f = int(input("Digite aqui: "))
+
+            if op_f == 2:
+                print("Sua matrícula é: 123")
+                c1 = input("Digite seu nome : ")
+                c2 = input("Digite sua data de nascimento sem caracteres: ")
+                c3 = input("Digite seu CPF sem caracteres: ")
+
+                matricula = "123"
+                nome = c1
+                data_nascimento = c2
+                cpf = c3
+
+                print("Cadastro realizado")
+
+            elif op_f == 1:
+                M = input("Digite sua matrícula sem caracteres: ")
+                N = input("Digite seu nome: ")
+                D = input("Digite sua data de nascimento sem caracteres: ")
+                C = input("Digite seu CPF sem caracteres: ")
+
+                if M == matricula and N == nome and D == data_nascimento and C == cpf:
+                    print("Acesso permitido.")
+                    while True:
+                        print("[1] Consultar estoque")
+                        print("[2] Atualizar estoque")
+                        print("[3] Adicionar novos produtos ao estoque")
+                        print("[4] Retirar produtos do estoque")
+                        op_e = int(input("Digite aqui: "))
+
+                        if op_e == 1:
+                            print("Digite o número à esquerda para ir à seção que deseja")
+                            print("[1] Alimentos")
+                            print("[2] Higiene")
+                            op_e2 = int(input("Digite aqui: "))
+
+                            if op_e2 == 1:
+                                print("Estoque de Alimentos:")
+                                for produto in produtos_alimentos:
+                                    print(f"{produto['nome']}: R$ {produto['preco']:.2f}")
+                            elif op_e2 == 2:
+                                print("Estoque de Higiene:")
+                                for produto in produtos_higiene:
+                                    print(f"{produto['nome']}: R$ {produto['preco']:.2f}")
+                            else:
+                                print("Seção inválida")
+
+
+                        elif op_e == 2:
+                            print("F")
+
+                        elif op_e == 3:
+                            print("Adicionar novos produtos ao estoque")
+                            print("Qual seção deseja")
+                            print("[1] Alimentos")
+                            print("[2] Higiene")
+
+                            seçao = int(input("digite aqui "))
+
+                            novo_produto = input("Digite o nome do novo produto: ")
+                            novo_preco = float(input("Digite o preço do novo produto: "))
+
+                            if seçao == 1:
+                                produtos_alimentos.append({"nome": novo_produto, "preco": novo_preco})
+                                print("Produto adicionado à seção de Alimentos com sucesso!")
+                            elif seçao == 2:
+                                produtos_higiene.append({"nome": novo_produto, "preco": novo_preco})
+                                print("Produto adicionado à seção de Higiene com sucesso!")
+                            else:
+                                print("Seção inválida, produto não adicionado.")
+
+                        elif op_e == 4:
+                            print("Retirar produtos do estoque")
+                            print("Qual seção deseja")
+                            print("[1] Alimentos")
+                            print("[2] Higiene")
+
+                            seçao2 = int(input("digite aqui "))
+
+                            novo_produto2 = input("Digite o nome do produto: ")
+                            novo_preco2 = float(input("Digite o preço do produto: "))
+
+                            if seçao2 == 1:
+                                produtos_alimentos.remove({"nome": novo_produto2, "preco": novo_preco2})
+                                print("Produto removido da seção de Alimentos com sucesso!")
+                            elif seçao2 == 2:
+                                produtos_higiene.remove({"nome": novo_produto2, "preco": novo_preco2})
+                                print("Produto removido da seção de Higiene com sucesso!")
+                            else:
+                                print("Seção inválida, produto não removido.")
+
+                        else:
+                            print("Opção inválida")
+                else:
+                    print("Acesso negado")
+
+            else:
+                print("Opção invalida")
+
+    else:
+        print("Opção invalida")
